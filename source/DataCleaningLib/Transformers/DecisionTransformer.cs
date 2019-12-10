@@ -18,18 +18,6 @@ namespace DataCleaningLib.Transformers
         {
             target.CASE_NUMBER = source.CASE_NUMBER;
             this.GetOutcome(source, target);
-            target.SECONDARY_ENTITY = this.GetDecision(source.SECONDARY_ENTITY);
-            target.AGENT_REPRESENTING_EMPLOYER = this.GetDecision(source.AGENT_REPRESENTING_EMPLOYER);
-            target.TOTAL_WORKERS = source.TOTAL_WORKERS;
-            target.NEW_EMPLOYMENT = source.NEW_EMPLOYMENT;
-            target.CONTINUED_EMPLOYMENT = source.CONTINUED_EMPLOYMENT;
-            target.CHANGE_PREVIOUS_EMPLOYMENT = source.CHANGE_PREVIOUS_EMPLOYMENT;
-            target.NEW_CONCURRENT_EMPLOYMENT = source.NEW_CONCURRENT_EMPLOYMENT;
-            target.CHANGE_EMPLOYER = source.CHANGE_EMPLOYER;
-            target.AMENDED_PETITION = source.AMENDED_PETITION;
-            target.FULL_TIME_POSITION = this.GetDecision(source.FULL_TIME_POSITION);
-            target.H1B_DEPENDENT = this.GetDecision(source.H1B_DEPENDENT);
-            target.WILLFUL_VIOLATOR = this.GetDecision(source.WILLFUL_VIOLATOR);
         }
 
         private int GetDecision(Decision dec)

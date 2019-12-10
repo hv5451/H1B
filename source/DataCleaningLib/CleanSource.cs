@@ -88,10 +88,6 @@ namespace DataCleaningLib
 
         public string SECONDARY_ENTITY_BUSINESS_NAME { get; set; }
 
-        public Decision AGENT_REPRESENTING_EMPLOYER { get; set; }
-
-        public string AGENT_ATTORNEY_NAME { get; set; }
-
         public string JOB_TITLE { get; set; }
 
         public string SOC_CODE { get; set; }
@@ -102,37 +98,13 @@ namespace DataCleaningLib
 
         public int TOTAL_WORKERS { get; set; }
 
-        public int NEW_EMPLOYMENT { get; set; }
-
-        public int CONTINUED_EMPLOYMENT { get; set; }
-
-        public int CHANGE_PREVIOUS_EMPLOYMENT { get; set; }
-
-        public int NEW_CONCURRENT_EMPLOYMENT { get; set; }
-
-        public int CHANGE_EMPLOYER { get; set; }
-
-        public int AMENDED_PETITION { get; set; }
-
-        public Decision FULL_TIME_POSITION { get; set; }
-
         public string PREVAILING_WAGE { get; set; }
 
         public PayDuration PW_UNIT_OF_PAY { get; set; }
 
-        public WageLevel PW_WAGE_LEVEL { get; set; }
-
         public string WAGE_RATE_OF_PAY_FROM { get; set; }
 
-        public string WAGE_RATE_OF_PAY_TO { get; set; }
-
         public PayDuration WAGE_UNIT_OF_PAY { get; set; }
-
-        public Decision H1B_DEPENDENT { get; set; }
-
-        public string WORKSITE_STATE { get; set; }
-
-        public Decision WILLFUL_VIOLATOR { get; set; }
 
         public string PW_SOURCE { get; set; }
 

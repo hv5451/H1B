@@ -41,14 +41,14 @@ namespace DataCleaningLib
             }
         }
 
-        public static void SeperateData(double percent, string sourceFile, string destinationPath)
+        public static void SeperateData<T>(double percent, string sourceFile, string destinationPath)
         {
             Random r = new Random();
-            using (Reader<Transformed> reader = new Reader<Transformed>(sourceFile))
-            using (Writer<Transformed> validation = new Writer<Transformed>(destinationPath + "validation.csv"))
-            using (Writer<Transformed> training = new Writer<Transformed>(destinationPath + "training.csv"))
+            using (Reader<T> reader = new Reader<T>(sourceFile))
+            using (Writer<T> validation = new Writer<T>(destinationPath + "validation.csv"))
+            using (Writer<T> training = new Writer<T>(destinationPath + "training.csv"))
             {
-                Transformed read;
+                T read;
                 while (reader.TryReadNextRecord(out read))
                 {
                     if (r.Next(0, 100) < percent)
@@ -66,5 +66,69 @@ namespace DataCleaningLib
             }
         }
 
+
+        public static void MergeData(Dictionary<string,string> yearToFileMapping, string destinationFile)
+        {
+            using (Writer<NewTransformed> validation = new Writer<NewTransformed>(destinationFile))
+            {
+                foreach (string year in yearToFileMapping.Keys)
+                {
+                    using (Reader<Transformed> reader = new Reader<Transformed>(yearToFileMapping[year]))
+                    {
+                        Transformed read;
+                        while (reader.TryReadNextRecord(out read))
+                        {
+                            NewTransformed n = new NewTransformed()
+                            {
+                                Year = year,
+                                Calculated_WageLevel = read.Calculated_WageLevel,
+                                Calculated_Yearly_Wage = read.Calculated_Yearly_Wage,
+                                CASE_NUMBER = read.CASE_NUMBER,
+                                Decision = read.Decision
+                            };
+                            validation.WriteTransformed(n);
+                        }
+                    }
+                }
+                validation.Flush();
+            }
+        }
+
+
+        public static void MergeDataText(Dictionary<string, string> yearToFileMapping, string destinationFile)
+        {
+            using (Writer<NewCombined> validation = new Writer<NewCombined>(destinationFile))
+            {
+                foreach (string year in yearToFileMapping.Keys)
+                {
+                    using (Reader<Combined> reader = new Reader<Combined>(yearToFileMapping[year]))
+                    {
+                        Combined read;
+                        while (reader.TryReadNextRecord(out read))
+                        {
+                            NewCombined n = new NewCombined()
+                            {
+                                Year = year,
+                                Decision = read.Decision,
+                                CaseNumber = read.CaseNumber,
+                                Together = read.Together
+                            };
+                            validation.WriteTransformed(n);
+                        }
+                    }
+                }
+                validation.Flush();
+            }
+        }
+    }
+
+    public class NewTransformed : Transformed
+    {
+        public string Year { get; set; }
+    }
+
+    public class NewCombined : Combined
+    {
+        public string Year { get; set; }
     }
 }

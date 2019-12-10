@@ -42,25 +42,10 @@ namespace DataCleaningLib.Transformers
         public static long CalculateWage(VisaSource source, out string reason)
         {
             reason = string.Empty;
-            long wage = 0;
             PayDuration duration;
 
-            long from = WageExtractor(source.WAGE_RATE_OF_PAY_FROM, out reason);
-            long to = WageExtractor(source.WAGE_RATE_OF_PAY_TO, out reason);
+            long wage = WageExtractor(source.WAGE_RATE_OF_PAY_FROM, out reason);
             duration = source.WAGE_UNIT_OF_PAY;
-
-            if (from == 0)
-            {
-                wage = to;
-            }
-            else if (to == 0)
-            {
-                wage = from;
-            }
-            else
-            {
-                wage = (from + to) / 2;
-            }
 
             wage = CalculateYearlyWage(duration, wage);
             return wage;

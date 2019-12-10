@@ -54,54 +54,9 @@ namespace DataCleaningLib.Transformers
 
             together.Add(this.GetWageLevel(source));
 
-            if (source.FULL_TIME_POSITION == Decision.Y)
-            {
-                together.Add($"{nameof(source.FULL_TIME_POSITION)}");
-            }
-
             if (source.SECONDARY_ENTITY == Decision.Y)
             {
                 together.Add($"{nameof(source.SECONDARY_ENTITY)}");
-            }
-
-            if (source.AGENT_REPRESENTING_EMPLOYER == Decision.Y)
-            {
-                together.Add($"{nameof(source.AGENT_REPRESENTING_EMPLOYER)}");
-            }
-
-            if (source.CONTINUED_EMPLOYMENT == 1)
-            {
-                together.Add($"{nameof(source.CONTINUED_EMPLOYMENT)}");
-            }
-
-            if (source.CHANGE_PREVIOUS_EMPLOYMENT == 1)
-            {
-                together.Add($"{nameof(source.CHANGE_PREVIOUS_EMPLOYMENT)}");
-            }
-
-            if (source.NEW_CONCURRENT_EMPLOYMENT == 1)
-            {
-                together.Add($"{nameof(source.NEW_CONCURRENT_EMPLOYMENT)}");
-            }
-
-            if (source.CHANGE_EMPLOYER == 1)
-            {
-                together.Add($"{nameof(source.CHANGE_EMPLOYER)}");
-            }
-
-            if (source.AMENDED_PETITION == 1)
-            {
-                together.Add($"{nameof(source.AMENDED_PETITION)}");
-            }
-
-            if (source.H1B_DEPENDENT == Decision.Y)
-            {
-                together.Add($"{nameof(source.H1B_DEPENDENT)}");
-            }
-
-            if (source.WILLFUL_VIOLATOR == Decision.Y)
-            {
-                together.Add($"{nameof(source.WILLFUL_VIOLATOR)}");
             }
 
             var d = new Combined()

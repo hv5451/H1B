@@ -27,7 +27,7 @@ def run_logistic(train_path = '/home/hitesh/project/data/training.csv', valid_pa
     predictions = logisticRegr.predict(x_val)
     score = logisticRegr.score(x_val, y_val)
     cm = metrics.confusion_matrix(y_val,predictions)
-    return score, cm
+    return x_val, y_val, score, predictions, cm, logisticRegr
 # python
 # import h1b
 # score,cm = h1b.run_logistic()
@@ -52,7 +52,7 @@ def run_nb_MultinomialNB(train_path = '/home/hitesh/project/data/CombinedObserve
     precision = precision_score(y_val, predictions)
     recall = recall_score(y_val, predictions)
     cm = confusion_matrix(y_val, predictions)
-    return accuracy, precision, recall, cm
+    return val, y_val , accuracy, precision, recall, cm, naive_bayes
 
 # python
 # import h1b

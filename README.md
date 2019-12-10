@@ -1,6 +1,12 @@
 # H1B
 Public code for CS229 project Predicting Work visa
 
+## 2014-2019 Dataset processed:
+- Source CSVs at https://1drv.ms/u/s!Av-7kBjGzwHTgcRFzW2rrlBAUiR2sw?e=nKX0n6 by year name e.g. 2014.csv is cleaned dataset for year 2014 that can be processed from DataCleaning Project
+- merged4.csv contains wage and calcualted wage feature with decision from 2014-2019 that can be used for logistic or kernels.
+- mergedtxt4.csv contains decision with text features separated by spaces that can be used for naive bayes model.
+- transformed2019 folder contains stats about 2019 year (explaination below).
+
 ## 2019 Dataset processed:
  - Source csv for 2019 dataset is https://1drv.ms/u/s!Av-7kBjGzwHTgcRLMOyadgWi1Cmrcg?e=4cEmwd converted from https://www.foreignlaborcert.doleta.gov/pdf/PerformanceData/2019/H-1B_Disclosure_Data_FY2019.xlsx
  - Other files at https://1drv.ms/u/s!Av-7kBjGzwHTgcRP4ZO1qMOB7HnS0A?e=Kba9tK processed from code
