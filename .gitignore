@@ -1,0 +1,8 @@
+source/.vs/
+source/DataCleaningLib/bin/
+source/DataCleaningLib/obj/
+source/DataCleaningConsole/bin/
+source/DataCleaningConsole/obj/
+source/DataCleaningConsole/.vscode/
+scripts/python/*.pyc
+scripts/python/logistic/*.pyc
