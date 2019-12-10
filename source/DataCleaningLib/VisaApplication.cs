@@ -3,8 +3,6 @@ using System.ComponentModel;
 
 namespace DataCleaningLib
 {
-
-    // https://onedrive.live.com/?cid=D301CFC61890BBFF&id=D301CFC61890BBFF%2124461&parId=D301CFC61890BBFF%2124448&o=OneUp
     public class ImmiData
     {
         public string CASE_NUMBER { get; set; }

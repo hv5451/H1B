@@ -1,6 +1,13 @@
 # H1B
 Public code for CS229 project Predicting Work visa
 
+## Folder Structure:
+- scripts/powershell contains adhoc processing scripts in powershell
+- scripts/python contains logistic and naive bayes python code for predictions that takes below csv files as input.
+- source/DataCleaningLib contains code to process and summarize the data. Cleanup.cs is the startup class.
+- source/DataCleaningConsole is a simple console app that contains some adhoc methods for quick processing by calling Cleanup class from DataCleaningLib.
+- Tested for both for Linux and Windows Machines, to run scripts: Python,pip,scikit-learn and pandas. To run code: dotnet framework and powershell for windows, dotnet core and powershell core for linux.
+
 ## 2014-2019 Dataset processed:
 - Source CSVs at https://1drv.ms/u/s!Av-7kBjGzwHTgcRFzW2rrlBAUiR2sw?e=nKX0n6 by year name e.g. 2014.csv is cleaned dataset for year 2014 that can be processed from DataCleaning Project
 - merged4.csv contains wage and calcualted wage feature with decision from 2014-2019 that can be used for logistic or kernels.
